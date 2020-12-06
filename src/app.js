@@ -27,7 +27,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/calendar', (req, res, next) => {
-  // console.log('params', req)
   let startDate = req.query.startDate;
   let endDate = req.query.endDate;
   return CalService.getCalendar(req.app.get('db'), startDate, endDate)
