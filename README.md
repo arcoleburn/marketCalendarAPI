@@ -1,26 +1,59 @@
-# Express Boilerplate!
+# 253 Trades - Market Calendar 
 
-This is a boilerplate project used for starting new projects!
+The 253Trades Market Calendar API provides basic data on the status of the US Stock Market. Currently, data are available for all years from 2013 - 2021.
 
-## Set up
+The API can be accessed at: https://dry-plains-84531.herokuapp.com/
+Custom domain coming soon...
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+## GET /calendar 
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+Market calendar data contains: 
+- date
+- market-open status 
+- market open time 
+- market close time 
 
-## Scripts
 
-Start the application `npm start`
+To get market calendar data, make a GET request to the /calendar endpoint. 
 
-Start nodemon for the application `npm run dev`
+Two query parameters are required:
+- startDate 
+    - ex.) 2020-01-01 
+- endDate
+    - ex.) 2020-02-04
 
-Run the tests `npm test`
+The API will respond with data for all days between the given dates. 
 
-## Deploying
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+#### Example Request:
+
+curl --location --request GET 'https://dry-plains-84531.herokuapp.com/calendar?startDate=2020-01-01&endDate=2020-01-04'
+
+#### Example Response: 
+```[
+    {
+        "date": "2020-01-01T00:00:00.000Z",
+        "open": false,
+        "openTime": null,
+        "closeTime": null
+    },
+    {
+        "date": "2020-01-02T00:00:00.000Z",
+        "open": true,
+        "openTime": "09:30:00+00",
+        "closeTime": "16:00:00+00"
+    },
+    {
+        "date": "2020-01-03T00:00:00.000Z",
+        "open": true,
+        "openTime": "09:30:00+00",
+        "closeTime": "16:00:00+00"
+    },
+    {
+        "date": "2020-01-04T00:00:00.000Z",
+        "open": false,
+        "openTime": null,
+        "closeTime": null
+    }
+]
+```
