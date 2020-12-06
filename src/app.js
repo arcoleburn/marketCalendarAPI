@@ -15,7 +15,7 @@ const serializeDate = (date) => ({
   date: date.date,
   open: date.open,
   openTime: date.open_time,
-  closeTime: date.closeTime,
+  closeTime: date.close_time,
 });
 
 app.use(morgan(morganOption));
