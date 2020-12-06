@@ -39,7 +39,7 @@ app.get('/calendar', (req, res, next) => {
 app.use(function errorHandler(error, req, res, next) {
   let response;
   if (process.env.NODE_ENV === 'production') {
-    response = { error: { message: 'server error' } };
+    response = { error: { message: error.messager, error } };
   } else {
     console.log(error);
     response = { message: error.messager, error };
