@@ -26,7 +26,7 @@ The API will respond with data for all days between the given dates.
 
 #### Example Request:
 
-curl --location --request GET 'https://dry-plains-84531.herokuapp.com/calendar?startDate=2020-01-01&endDate=2020-01-04'
+curl --location --request GET 'http://www.253cal.xyz/calendar?startDate=2020-01-01&endDate=2020-01-04'
 
 #### Example Response: 
 ```[
