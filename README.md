@@ -2,7 +2,7 @@
 
 The 253Trades Market Calendar API provides basic data on the status of the US Stock Market. Currently, data are available for all years from 2013 - 2021.
 
-The API can be accessed at: www.253cal.xyz
+The API can be accessed at: www.253cal.xyz OR https://dry-plains-84531.herokuapp.com/
 
 ## GET /calendar 
 
